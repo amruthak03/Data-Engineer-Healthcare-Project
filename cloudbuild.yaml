@@ -1,0 +1,23 @@
+steps:
+  # step 1: Install Python dependencies
+  - name: 'python'
+    entrypoint: pip
+    args: ["install", "-r", "utils/requirements.txt", "--user"]
+
+  # step 2: Run the Python script to upload DAGs to Cloud Composer
+  - name: 'python'
+    entrypoint: python
+    args:
+      - "utils/add_dags_to_composer.py"
+      - "--dags_directory=${_DAGS_DIRECTORY}"
+      - '--composer_env=my-composer-env'
+      - "--dags_bucket=${_DAGS_BUCKET}"
+      - "--data_directory=${_DATA_DIRECTORY}"
+  
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+substitutions:
+  _DAGS_DIRECTORY: "workflows/"
+  _DAGS_BUCKET: "us-central1-demo-instance-41884e29-bucket"
+  _DATA_DIRECTORY: "data/"
