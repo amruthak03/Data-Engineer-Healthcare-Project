@@ -21,3 +21,5 @@ substitutions:
   _DAGS_DIRECTORY: "workflows/"
   _DAGS_BUCKET: "us-central1-demo-instance-41884e29-bucket"
   _DATA_DIRECTORY: "data/"
+
+  
