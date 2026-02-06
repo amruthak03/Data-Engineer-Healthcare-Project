@@ -7,7 +7,7 @@ from airflow.providers.google.cloud.operators.dataproc import DataprocStartClust
 
 # define the variables
 PROJECT_ID = "project-15f498fb-28c2-4528-bc7"
-REGION = "us-east1"
+REGION = "us-central1"
 CLUSTER_NAME = "my-demo-cluster"
 COMPOSER_BUCKET = "us-central1-demo-instance-41884e29-bucket" # got it from composer environment under DAGs folder
 GCS_JOB_FILE_1 = f"gs://{COMPOSER_BUCKET}/data/INGESTION/hospitalA_mysqlToLanding.py"
