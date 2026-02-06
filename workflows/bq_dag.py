@@ -3,7 +3,7 @@ import airflow
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.utils.dates import days_ago
-from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator, BigQueryExecuteQueryOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
 
 # define the variables
 PROJECT_ID = "project-15f498fb-28c2-4528-bc7"
