@@ -45,8 +45,10 @@ if __name__ == "__main__":
     parser.add_argument("--dags_directory", help="Path to DAGs directory.")
     parser.add_argument("--dags_bucket", help="GCS bucket name for DAGs.")
     parser.add_argument("--data_directory", help="Path to data directory.")
+    parser.add_argument("--composer_env", help="Composer environment name") 
+
     args = parser.parse_args()
-    print(args.dags_directory, args.dags_bucket, args.data_directory)
+    print(args.dags_directory, args.dags_bucket, args.data_directory, args.composer_env)
     
     if args.dags_directory and os.path.exists(args.dags_directory):
         upload_to_composer(args.dags_directory, args.dags_bucket, "dags/")
