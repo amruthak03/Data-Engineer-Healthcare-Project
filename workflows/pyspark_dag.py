@@ -10,32 +10,46 @@ PROJECT_ID = "project-15f498fb-28c2-4528-bc7"
 REGION = "us-central1"
 CLUSTER_NAME = "my-demo-cluster"
 COMPOSER_BUCKET = "us-central1-demo-instance-41884e29-bucket" # got it from composer environment under DAGs folder
+BIGQUERY_JAR = "gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.23.2.jar"
+
 GCS_JOB_FILE_1 = f"gs://{COMPOSER_BUCKET}/data/INGESTION/hospitalA_mysqlToLanding.py"
 PYSPARK_JOB_1 = {
     "reference": {"project_id": PROJECT_ID},
     "placement": {"cluster_name": CLUSTER_NAME},
-    "pyspark_job": {"main_python_file_uri": GCS_JOB_FILE_1},
+    "pyspark_job": {
+        "main_python_file_uri": GCS_JOB_FILE_1,
+        "jar_file_uris": [BIGQUERY_JAR]
+        },
 }
 
 GCS_JOB_FILE_2 = f"gs://{COMPOSER_BUCKET}/data/INGESTION/hospitalB_mysqlToLanding.py"
 PYSPARK_JOB_2 = {
     "reference": {"project_id": PROJECT_ID},
     "placement": {"cluster_name": CLUSTER_NAME},
-    "pyspark_job": {"main_python_file_uri": GCS_JOB_FILE_2},
+    "pyspark_job": {
+        "main_python_file_uri": GCS_JOB_FILE_2,
+        "jar_file_uris": [BIGQUERY_JAR]
+        },
 }
 
 GCS_JOB_FILE_3 = f"gs://{COMPOSER_BUCKET}/data/INGESTION/claims.py"
 PYSPARK_JOB_3 = {
     "reference": {"project_id": PROJECT_ID},
     "placement": {"cluster_name": CLUSTER_NAME},
-    "pyspark_job": {"main_python_file_uri": GCS_JOB_FILE_3},
+    "pyspark_job": {
+        "main_python_file_uri": GCS_JOB_FILE_3,
+        "jar_file_uris": [BIGQUERY_JAR]
+    },
 }
 
 GCS_JOB_FILE_4 = f"gs://{COMPOSER_BUCKET}/data/INGESTION/cpt_codes.py"
 PYSPARK_JOB_4 = {
     "reference": {"project_id": PROJECT_ID},
     "placement": {"cluster_name": CLUSTER_NAME},
-    "pyspark_job": {"main_python_file_uri": GCS_JOB_FILE_4},
+    "pyspark_job": {
+        "main_python_file_uri": GCS_JOB_FILE_4,
+        "jar_file_uris": [BIGQUERY_JAR]
+        },
 }
 
 # define default arguments
